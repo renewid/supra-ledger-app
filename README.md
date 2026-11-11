@@ -87,4 +87,4 @@ The work shown here corresponds to commit `ec54e02b5b05e9ef4ca2f0953ec32fe2a662f
 
 Developer: r3new ([renewid on GitHub](https://github.com/renewid))
 
-© 2026 r3new. Text and screenshots in this repository: all rights reserved.
+© 2026 [r3new](https://t.me/supraofficialceo). Text and screenshots in this repository: all rights reserved.
