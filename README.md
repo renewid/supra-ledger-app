@@ -40,6 +40,14 @@ This repository only presents the project. The source code is kept private for n
 - **Path restriction**: only hardened `m/44'/<coin type>'/...` paths (SLIP-10 ed25519)
 - **Security fixes** over the upstream app, including stricter detection of the clear-signed framework functions, a length check so no byte is signed without being decoded, key material removed from debug output and checked crypto calls
 
+## Demo
+
+Verifying the address, sending SUPRA and staking SUPRA, as the app shows them in Ledger's Speculos emulator (frames taken from the functional tests).
+
+| Nano X | Flex |
+|---|---|
+| <img src="demo/nanox.gif" width="420" alt="Nano X: verify address, send SUPRA, stake SUPRA"> | <img src="demo/flex.gif" width="270" alt="Flex: verify address, send SUPRA, stake SUPRA"> |
+
 ## Screenshots
 
 | Device | Home | Transfer review | Staking review | Blind-signing warning |
