@@ -28,6 +28,9 @@ This repository only presents the project. The source code is kept private for n
   - batch transfers: `supra_account::batch_transfer`, `batch_transfer_coins`, with every receiver and amount and the total
   - staking with delegation pools: `pbo_delegation_pool::add_stake`, `unlock`, `reactivate_stake`, `withdraw`
   - fungible assets: `primary_fungible_store::transfer`
+  - vesting releases: `vesting_without_staking::vest`, `vest_individual`
+  - PoEL rewards and iAsset redemptions of Supra IntraLayer (`poel`, mainnet): `claim_rewards`, `withdraw_rewards`, `update_rewards`, `redeem_request`, `redeem_iasset`
+  - chosen from Suprascan's module ranking, so the functions end users call most are covered; signatures checked against the on-chain ABI
   - all of these also as **fee payer** and **multi-agent** transactions: the review adds the sender, the co-signers and the fee payer
 - **Every transaction review** ends with the maximum gas fee, the expiration time in UTC and, unless it is mainnet, the network (testnet or chain ID)
 - **Amounts** in `SUPRA` with 8 decimals, for the coin and for the SUPRA fungible asset (verified on chain); other coins and assets in base units next to their full type
@@ -61,7 +64,7 @@ It derives the same addresses as Supra's SDK, signs exactly what Supra's SDKs si
 
 ## Road to a listing
 
-Done: development basis, Ledger toolchain, security and signing basics, NBGL UI on all current devices, test coverage, clear signing of transfers, batches, staking, fungible assets, fee payer and multi-agent transactions, host library and integration guide.
+Done: development basis, Ledger toolchain, security and signing basics, NBGL UI on all current devices, test coverage, clear signing of transfers, batches, staking, fungible assets, vesting, PoEL / iAssets, fee payer and multi-agent transactions, host library and integration guide.
 
 Next:
 1. Wallet integration (StarKey) and publishing the host library
@@ -70,7 +73,7 @@ Next:
 
 ## Proof of state
 
-The work shown here corresponds to commit `2b0dba7b26f1d3e91c6e83ccb5e9be4b9ee3b697` of the private repository.
+The work shown here corresponds to commit `ec54e02b5b05e9ef4ca2f0953ec32fe2a662ff41` of the private repository.
 
 ## Contact
 
