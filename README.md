@@ -38,7 +38,7 @@ This repository only presents the project. The source code is kept private for n
 - **Amounts** in `SUPRA` with 8 decimals, for the coin and for the SUPRA fungible asset, and with ticker for the iAssets iETH, iSUPRA, iUSDT, iUSDC and iWBTC (all verified on chain); other coins and assets in base units next to their full type
 - **Address verification** on the device, in the long form StarKey and Suprascan use
 - **Blind-signing setting**, off by default; with it off, the device explains why and offers to open the settings
-- **Message signing**: printable text is shown in full, other data only with blind signing and as a hash
+- **Message signing**: printable ASCII is shown in full; other UTF-8 text (umlauts, emoji, control characters) only with blind signing and as a hash, like Ledger's Solana app
 - **Path restriction**: only hardened `m/44'/<coin type>'/...` paths (SLIP-10 ed25519)
 - **Security fixes** over the upstream app, including stricter detection of the clear-signed framework functions, a length check so no byte is signed without being decoded, key material removed from debug output and checked crypto calls
 
@@ -83,7 +83,7 @@ Next:
 
 ## Proof of state
 
-The work shown here corresponds to commit `bd275498703798fd5192d335ef12858bcd1a35ee` of the private repository.
+The work shown here corresponds to commit `c9fa8e1f0fcd7e00b4eed9824b9080ef8bdf60dd` of the private repository.
 
 ## Contact
 
