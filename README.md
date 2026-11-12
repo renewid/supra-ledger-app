@@ -16,9 +16,10 @@ This repository only presents the project. The source code is kept private for n
 | UI | NBGL use-case API on all devices, info and settings pages per Ledger's design guidelines |
 | SDK | Ledger SDK v27.1.7, `Makefile.standard_app`, `lib_standard_app` |
 | CI | Ledger's mandatory workflows (build, guidelines enforcer), CodeQL, unit tests, lint, spell check, functional tests, host-library tests against the emulated app: all green except the enforcer's `APP_LOAD_PARAMS` check, which can only pass once the app is registered in Ledger's app database |
-| Tests | Ragger functional tests with snapshots of every review screen on all five devices |
+| Release | 0.1.0 (tagged, binaries with SHA-256 hashes); work after it on the main branch |
+| Tests | Ragger functional tests with snapshots of every review screen on all five devices; unit tests covering 92 % of the app's parser and helper code, including every truncated and extended form of each clear-signed transaction |
 | Host library | `hw-app-supra` (TypeScript, any Ledger transport), tested end to end against the app in Speculos, with an integration guide for wallet teams |
-| Fuzzing | Transaction-parser fuzzer with ASan/UBSan covering every clear-signed function, about 20 million runs per 2 minutes without findings |
+| Fuzzing | Transaction-parser fuzzer covering every clear-signed function, run in CI with ASan, UBSan and MSan (Ledger's ClusterFuzzLite workflow) on every pull request and weekly, no findings |
 | Static analysis | CodeQL `security-and-quality`: 0 results |
 
 ## Features
@@ -30,10 +31,11 @@ This repository only presents the project. The source code is kept private for n
   - fungible assets: `primary_fungible_store::transfer`
   - vesting releases: `vesting_without_staking::vest`, `vest_individual`
   - PoEL rewards and iAsset redemptions of Supra IntraLayer (`poel`, mainnet): `claim_rewards`, `withdraw_rewards`, `update_rewards`, `redeem_request`, `redeem_iasset`
+  - multisig accounts (`multisig_account`): approvals, rejections and votes, proposals with the **proposed transaction decoded**, and executions by the multisig account
   - chosen from Suprascan's module ranking, so the functions end users call most are covered; signatures checked against the on-chain ABI
   - all of these also as **fee payer** and **multi-agent** transactions: the review adds the sender, the co-signers and the fee payer
 - **Every transaction review** ends with the maximum gas fee, the expiration time in UTC and, unless it is mainnet, the network (testnet or chain ID)
-- **Amounts** in `SUPRA` with 8 decimals, for the coin and for the SUPRA fungible asset (verified on chain); other coins and assets in base units next to their full type
+- **Amounts** in `SUPRA` with 8 decimals, for the coin and for the SUPRA fungible asset, and with ticker for the iAssets iETH, iSUPRA, iUSDT, iUSDC and iWBTC (all verified on chain); other coins and assets in base units next to their full type
 - **Address verification** on the device, in the long form StarKey and Suprascan use
 - **Blind-signing setting**, off by default; with it off, the device explains why and offers to open the settings
 - **Message signing**: printable text is shown in full, other data only with blind signing and as a hash
@@ -72,16 +74,16 @@ It derives the same addresses as Supra's SDK, signs exactly what Supra's SDKs si
 
 ## Road to a listing
 
-Done: development basis, Ledger toolchain, security and signing basics, NBGL UI on all current devices, test coverage, clear signing of transfers, batches, staking, fungible assets, vesting, PoEL / iAssets, fee payer and multi-agent transactions, host library and integration guide.
+Done: development basis, Ledger toolchain, security and signing basics, NBGL UI on all current devices, test coverage, clear signing of transfers, batches, staking, fungible assets, vesting, PoEL / iAssets, multisig accounts, fee payer and multi-agent transactions, host library and integration guide.
 
 Next:
 1. Wallet integration (StarKey) and publishing the host library
-2. Decimals of further well-known tokens, each verified on chain
+2. Further tokens as they come into common use, each verified on chain
 3. Security audit and submission to Ledger
 
 ## Proof of state
 
-The work shown here corresponds to commit `ec54e02b5b05e9ef4ca2f0953ec32fe2a662ff41` of the private repository.
+The work shown here corresponds to commit `5cbe77ab497dab0e80cdccb37b551a999a67783f` of the private repository.
 
 ## Contact
 
