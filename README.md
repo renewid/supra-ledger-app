@@ -15,11 +15,11 @@ This repository only presents the project. The source code is kept private for n
 | Devices | Nano S Plus, Nano X, Stax, Flex, Apex P |
 | UI | NBGL use-case API on all devices, info and settings pages per Ledger's design guidelines |
 | SDK | Ledger SDK v27.1.7, `Makefile.standard_app`, `lib_standard_app` |
-| CI | Ledger's mandatory workflows (build, guidelines enforcer), CodeQL, unit tests, lint, spell check, functional tests, host-library tests against the emulated app: all green except the enforcer's `APP_LOAD_PARAMS` check, which can only pass once the app is registered in Ledger's app database |
+| CI | Ledger's mandatory workflows (build, guidelines enforcer), CodeQL, unit tests, lint, spell check, functional tests, host-library tests against the emulated app, checked before every merge (on GitHub or with the same checks in Ledger's dev-tools image): all green except the enforcer's `APP_LOAD_PARAMS` check, which can only pass once the app is registered in Ledger's app database |
 | Release | 0.1.0 (tagged, binaries with SHA-256 hashes); work after it on the main branch |
 | Tests | Ragger functional tests with snapshots of every review screen on all five devices; unit tests covering 92 % of the app's parser and helper code, including every truncated and extended form of each clear-signed transaction |
 | Host library | `hw-app-supra` (TypeScript, any Ledger transport), tested end to end against the app in Speculos, with an integration guide for wallet teams |
-| Fuzzing | Transaction-parser fuzzer covering every clear-signed function, run in CI with ASan, UBSan and MSan (Ledger's ClusterFuzzLite workflow) on every pull request and weekly, no findings |
+| Fuzzing | Transaction-parser fuzzer covering every clear-signed function, run with ASan, UBSan and MSan in Ledger's ClusterFuzzLite workflow and with ASan and UBSan before every merge, no findings |
 | Static analysis | CodeQL `security-and-quality`: 0 results |
 
 ## Features
@@ -83,7 +83,7 @@ Next:
 
 ## Proof of state
 
-The work shown here corresponds to commit `c9fa8e1f0fcd7e00b4eed9824b9080ef8bdf60dd` of the private repository.
+The work shown here corresponds to commit `84786b08c1bf2ac4d0b8392b6e31a241ba05a74f` of the private repository.
 
 ## Contact
 
