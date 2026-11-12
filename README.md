@@ -70,7 +70,7 @@ const { address } = await supra.getAddress("m/44'/637'/0'/0'/0'", true);
 const { signature } = await supra.signTransaction(path, rawTransactionSigningMessage(bcsRawTransaction));
 ```
 
-It derives the same addresses as Supra's SDK, signs exactly what Supra's SDKs sign, and reports every device status (rejected, blind signing off, wrong app open) as a typed error. The integration guide covers paths, signing formats, what the device shows, limits and a checklist for wallet teams such as StarKey.
+It derives the same addresses as Supra's SDK and StarKey (accounts numbered like StarKey, checked with a test phrase), signs exactly what Supra's SDKs sign, and reports every device status (rejected, blind signing off, wrong app open) as a typed error. The integration guide covers paths, signing formats, what the device shows, limits and a checklist for wallet teams such as StarKey.
 
 ## Road to a listing
 
@@ -83,7 +83,7 @@ Next:
 
 ## Proof of state
 
-The work shown here corresponds to commit `5cbe77ab497dab0e80cdccb37b551a999a67783f` of the private repository.
+The work shown here corresponds to commit `bd275498703798fd5192d335ef12858bcd1a35ee` of the private repository.
 
 ## Contact
 
