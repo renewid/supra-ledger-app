@@ -22,6 +22,7 @@ This repository only presents the project. The source code is kept private for n
 | Tests | Ragger functional tests with snapshots of every review screen on all five devices; unit tests covering 92 % of the app's parser and helper code, including every truncated and extended form of each clear-signed transaction |
 | Host library | `hw-app-supra` (TypeScript, any Ledger transport), tested end to end against the app in Speculos, with an integration guide for wallet teams |
 | Fuzzing | Transaction-parser fuzzer covering every clear-signed function, run with ASan, UBSan and MSan in Ledger's ClusterFuzzLite workflow and with ASan and UBSan before every merge, no findings |
+| Security review | Internal code review of the whole app (November 2026), findings reproduced in the emulator and fixed: names are never shown cut, only valid Move names reach the screen, stricter paths, messages and request state. The independent audit is still to come |
 | Static analysis | CodeQL `security-and-quality`: 0 results |
 
 ## Features
@@ -40,7 +41,7 @@ This repository only presents the project. The source code is kept private for n
 - **Amounts** in `SUPRA` with 8 decimals, for the coin and for the SUPRA fungible asset, and with ticker for the iAssets iETH, iSUPRA, iUSDT, iUSDC and iWBTC (all verified on chain); other coins and assets in base units next to their full type
 - **Address verification** on the device, in the long form StarKey and Suprascan use
 - **Blind-signing setting**, off by default; with it off, the device explains why and offers to open the settings
-- **Message signing**: printable ASCII is shown in full; other UTF-8 text (umlauts, emoji, control characters) only with blind signing and as a hash, like Ledger's Solana app
+- **Message signing**: printable ASCII is shown in full; other UTF-8 text (umlauts, emoji, line breaks) only with blind signing and as a hash, like Ledger's Solana app; data with other control characters is refused
 - **Path restriction**: only hardened `m/44'/<coin type>'/...` paths (SLIP-10 ed25519)
 - **Security fixes** over the upstream app, including stricter detection of the clear-signed framework functions, a length check so no byte is signed without being decoded, key material removed from debug output and checked crypto calls
 
@@ -85,7 +86,7 @@ Next:
 
 ## Proof of state
 
-The work shown here corresponds to commit `84786b08c1bf2ac4d0b8392b6e31a241ba05a74f` of the private repository.
+The work shown here corresponds to commit `a52a1371094bf243d7051b8decde4e0caca14260` of the private repository.
 
 ## Contact
 
