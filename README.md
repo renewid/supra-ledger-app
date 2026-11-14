@@ -8,6 +8,8 @@ A Ledger device app for the [Supra L1](https://supra.com) blockchain, brought up
 
 This repository only presents the project. The source code is kept private for now and is available to the Supra team on request.
 
+**Donations** (SUPRA, to support the work): `0x71aefd4fcbbee556b4115232f9cf5d14627c14806a0d7651a3a3f12140e3e2ea`
+
 ## Status
 
 | Area | State |
