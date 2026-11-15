@@ -4,7 +4,7 @@ A Ledger device app for the [Supra L1](https://supra.com) blockchain, brought up
 
 > **Unofficial.** This project is not affiliated with or endorsed by Supra or the Entropy Foundation. The Supra name and logo belong to their owners.
 >
-> **Not audited.** No security audit has been done yet.
+> **Not audited.** No independent security audit has been done yet, only a first in-house audit with Claude Fable 5.2.
 
 This repository only presents the project. The source code is kept private for now and is available to the Supra team on request.
 
