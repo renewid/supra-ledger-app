@@ -22,7 +22,7 @@ This repository only presents the project. The source code is kept private for n
 | Tests | Ragger functional tests with snapshots of every review screen on all five devices; unit tests covering 92 % of the app's parser and helper code, including every truncated and extended form of each clear-signed transaction |
 | Host library | `hw-app-supra` (TypeScript, any Ledger transport), tested end to end against the app in Speculos, with an integration guide for wallet teams |
 | Fuzzing | Transaction-parser fuzzer covering every clear-signed function, run with ASan, UBSan and MSan in Ledger's ClusterFuzzLite workflow and with ASan and UBSan before every merge, no findings |
-| Security review | Internal code review of the whole app (November 2026), findings reproduced in the emulator and fixed: names are never shown cut, only valid Move names reach the screen, stricter paths, messages and request state. The independent audit is still to come |
+| Security review | First in-house audit of the whole app with Claude Fable 5.2 (November 2026), all findings fixed. It does not replace the independent security audit, which is still to come |
 | Static analysis | CodeQL `security-and-quality`: 0 results |
 
 ## Features
